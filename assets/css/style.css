@@ -141,7 +141,17 @@ body {
 
 
 
+.insta {
+  color: #c32aa3;
+}
 
+.what {
+  color: #25d366;
+}
+
+.mail {
+  color: rgb(255, 0, 13);
+}
 
 /*-----------------------------------*\
  * #REUSED STYLE
@@ -274,7 +284,7 @@ body {
 
 .helpline-box .icon-box {
   background: green;
-  padding: 6px;
+  padding: 12px;
   border-radius: 50%;
   color: var(--white);
 }
@@ -288,8 +298,8 @@ body {
 }
 
 .header-top .logo img {
-  max-width: 100px;
-  width: 171px;
+  max-width: 172px;
+  width: 209px;
 }
 
 .header-btn-group {
@@ -318,7 +328,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 15px;
+  padding-block: 51px;
 }
 
 .social-list {
@@ -1015,6 +1025,10 @@ address {
    * HEADER
    */
 
+  .header-bottom .container {
+    padding-block: 17px;
+  }
+
   .header {
     padding-top: 83px;
   }
@@ -1355,9 +1369,7 @@ address {
     transition: var(--transition);
   }
 
-  .header-bottom .container {
-    padding-block: 0;
-  }
+
 
   .header .navbar {
     all: unset;
