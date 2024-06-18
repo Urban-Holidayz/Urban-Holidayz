@@ -536,6 +536,16 @@ body {
   /* Adjust padding to make room for the icon */
 }
 
+.input-field[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: calc(100% - 20px);
+  /* Adjust width to accommodate calendar icon */
+  padding-right: 20px;
+  /* Add padding for calendar icon */
+}
+
 
 
 
