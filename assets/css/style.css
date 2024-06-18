@@ -518,6 +518,23 @@ body {
   margin-top: 35px;
 }
 
+.input-container {
+  position: relative;
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #aaa;
+}
+
+.input-field {
+  padding-right: 30px;
+  /* Adjust padding to make room for the icon */
+}
 
 
 

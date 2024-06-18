@@ -25,6 +25,18 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
 </head>
 
 <body id="top">
@@ -195,10 +207,15 @@
         - #TOUR SEARCH
       -->
 
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
       <section class="tour-search">
         <div class="container">
 
-          <form action="" class="tour-search-form" id="tourSearchForm">
+          <form
+            action="https://script.google.com/macros/s/AKfycbzm28F7JCCIDi6koXmeOuLZuPOz8Druonj8Oo6-3PHNNWePI-PYe0a3uuLVpLXfQyrB/exec"
+            class="tour-search-form" id="tourSearchForm" onsubmit="handleSubmit(event)">
 
             <div class="input-wrapper">
               <label for="destination" class="input-label">Search Destination*</label>
@@ -208,36 +225,113 @@
 
             <div class="input-wrapper">
               <label for="people" class="input-label">Number Of People*</label>
-              <input type="number" name="people" id="people" required placeholder="No.of People" class="input-field">
+              <input type="number" name="people" id="people" required placeholder="No. of People" class="input-field">
             </div>
 
             <div class="input-wrapper">
               <label for="checkin" class="input-label">Travel Date*</label>
-              <input type="date" name="checkin" id="checkin" required class="input-field">
+              <div class="input-container">
+                <input type="text" name="checkin" id="checkin" required class="input-field">
+                <i class="fas fa-calendar-alt calendar-icon"></i>
+              </div>
             </div>
 
             <div class="input-wrapper">
-              <label for="checkout" class="input-label">Checkout Date*</label>
-              <input type="date" name="checkout" id="checkout" required class="input-field">
+              <label for="phone" class="input-label">Phone Number*</label>
+              <input type="tel" name="phone" id="phone" required placeholder="Enter Phone Number" class="input-field">
             </div>
 
-            <button type="button" class="btn btn-secondary" onclick="validateForm()">Inquire Now</button>
+            <button type="submit" class="btn btn-secondary">Inquire Now</button>
 
           </form>
 
           <script>
-            function validateForm() {
+            async function handleSubmit(event) {
+              event.preventDefault();  // Prevent the default form submission
+
               const form = document.getElementById('tourSearchForm');
               if (form.checkValidity()) {
-                window.location.href = 'tel:+1234567890';
+                const formData = new FormData(form);
+
+                // Show loading animation
+                Swal.fire({
+                  title: 'Submitting your inquiry...',
+                  text: 'Please wait while we process your request.',
+                  allowOutsideClick: false,
+                  didOpen: () => {
+                    Swal.showLoading();
+                  }
+                });
+
+                try {
+                  const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                  });
+
+                  const data = await response.json();
+                  console.log('Success:', data);
+
+                  // Show success message
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Thank you for submitting!',
+                    text: 'We will reach out to you soon.',
+                    confirmButtonText: 'OK'
+                  }).then(() => {
+                    // Store the current scroll position
+                    localStorage.setItem('scrollPosition', window.scrollY);
+                    // Refresh the page
+                    location.reload();
+                  });
+                } catch (error) {
+                  console.error('Error:', error);
+
+                  // Show error message
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'There was an error submitting the form.',
+                    confirmButtonText: 'OK'
+                  });
+                }
               } else {
                 form.reportValidity();
               }
             }
+
+            // Restore the scroll position after the page reloads
+            window.addEventListener('load', () => {
+              const scrollPosition = localStorage.getItem('scrollPosition');
+              if (scrollPosition) {
+                window.scrollTo(0, parseInt(scrollPosition, 10));
+                localStorage.removeItem('scrollPosition');  // Clear the stored position
+              }
+            });
+
+            // Initialize Flatpickr for date inputs
+            flatpickr("#checkin", {
+              dateFormat: "Y-m-d",
+            });
           </script>
 
         </div>
       </section>
+
+      <!-- SweetAlert2 CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+      <!-- SweetAlert2 JS -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+      <!-- Flatpickr CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+      <!-- Flatpickr JS -->
+      <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
 
@@ -666,13 +760,13 @@
 
             <li class="gallery-item">
               <figure class="gallery-image">
-                <img src="./assets/images/img4.jpeg" alt="Gallery image">
+                <img src="./assets/images/img10.jpeg" alt="Gallery image">
               </figure>
             </li>
 
             <li class="gallery-item">
               <figure class="gallery-image">
-                <img src="./assets/images/img5.jpeg" alt="Gallery image">
+                <img src="./assets/images/img11.jpeg" alt="Gallery image">
               </figure>
             </li>
 
