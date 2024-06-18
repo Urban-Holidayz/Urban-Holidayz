@@ -540,8 +540,8 @@ body {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: calc(100% - 20px);
-  /* Adjust width to accommodate calendar icon */
+  /*width: calc(100% - 20px);
+   Adjust width to accommodate calendar icon */
   padding-right: 20px;
   /* Add padding for calendar icon */
 }
@@ -1119,6 +1119,7 @@ address {
 
   .tour-search-form .input-field {
     padding: 16px 20px;
+
   }
 
   .tour-search .btn {
