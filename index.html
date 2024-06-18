@@ -206,10 +206,6 @@
       <!-- 
         - #TOUR SEARCH
       -->
-
-      <!-- Font Awesome CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
       <section class="tour-search">
         <div class="container">
 
@@ -230,10 +226,7 @@
 
             <div class="input-wrapper">
               <label for="checkin" class="input-label">Travel Date*</label>
-              <div class="input-container">
-                <input type="text" name="checkin" id="checkin" required class="input-field">
-                <i class="fas fa-calendar-alt calendar-icon"></i>
-              </div>
+              <input type="date" name="checkin" id="checkin" required class="input-field">
             </div>
 
             <div class="input-wrapper">
@@ -308,11 +301,6 @@
                 localStorage.removeItem('scrollPosition');  // Clear the stored position
               }
             });
-
-            // Initialize Flatpickr for date inputs
-            flatpickr("#checkin", {
-              dateFormat: "Y-m-d",
-            });
           </script>
 
         </div>
@@ -323,17 +311,6 @@
 
       <!-- SweetAlert2 JS -->
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-      <!-- Flatpickr CSS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-      <!-- Flatpickr JS -->
-      <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-      <!-- Font Awesome CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-
 
 
 
