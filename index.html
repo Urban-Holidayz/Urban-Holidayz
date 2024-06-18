@@ -226,8 +226,7 @@
 
             <div class="input-wrapper">
               <label for="checkin" class="input-label">Travel Date*</label>
-              <input type="text" name="checkin" id="checkin" required placeholder="Select Travel Date"
-                class="input-field">
+              <input type="date" name="checkin" id="checkin" required class="input-field">
             </div>
 
             <div class="input-wrapper">
@@ -243,16 +242,11 @@
         </div>
       </section>
 
-      <!-- Include Flatpickr JS -->
-      <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-      <!-- SweetAlert2 JS -->
+      <!-- SweetAlert2 CSS and JS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
       <script>
-        flatpickr("#checkin", {
-          dateFormat: "Y-m-d",
-        });
-
         async function handleSubmit(event) {
           event.preventDefault();  // Prevent the default form submission
 
