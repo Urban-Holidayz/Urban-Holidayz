@@ -206,6 +206,7 @@
       <!-- 
         - #TOUR SEARCH
       -->
+
       <section class="tour-search">
         <div class="container">
 
@@ -248,6 +249,9 @@
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
       <script>
+        // Set default date to today
+        document.getElementById('checkin').valueAsDate = new Date();
+
         async function handleSubmit(event) {
           event.preventDefault();  // Prevent the default form submission
 
