@@ -268,7 +268,7 @@ body {
 
 .header.active .header-top {
   position: fixed;
-  background: var(--gunmetal);
+  background: #20345b;
 }
 
 .header-top .container {
