@@ -26,6 +26,63 @@ navToggleEvent(navLinks);
 
 
 
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const closeBtn = document.querySelector('.close');
+  const nextBtn = document.getElementById('nextButton');
+  const prevBtn = document.getElementById('prevButton');
+  const galleryImages = document.querySelectorAll('.gallery-image img');
+  const additionalImages = document.querySelectorAll('#additional-images img');
+  const allImages = [...galleryImages, ...additionalImages];
+  let currentIndex = 0;
+
+  const openModal = (index) => {
+    currentIndex = index;
+    modal.style.display = 'block';
+    modalImage.src = allImages[currentIndex].src;
+  };
+
+  const closeModal = () => {
+    modal.style.display = 'none';
+  };
+
+  const showNextImage = () => {
+    currentIndex = (currentIndex + 1) % allImages.length;
+    modalImage.src = allImages[currentIndex].src;
+  };
+
+  const showPrevImage = () => {
+    currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+    modalImage.src = allImages[currentIndex].src;
+  };
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => openModal(index));
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  nextBtn.addEventListener('click', showNextImage);
+  prevBtn.addEventListener('click', showPrevImage);
+
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Preload additional images
+  additionalImages.forEach((img) => {
+    const preloader = new Image();
+    preloader.src = img.src;
+  });
+});
+
+
+
 /**
  * header sticky & go to top
  */
