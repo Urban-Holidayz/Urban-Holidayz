@@ -103,7 +103,7 @@ a {
 
 a,
 img,
-span,
+/*span,*/
 input,
 label,
 button,
@@ -133,6 +133,7 @@ ion-icon {
 html {
   font-family: var(--ff-poppins);
   scroll-behavior: smooth;
+  
 }
 
 body {
@@ -762,7 +763,11 @@ body {
   margin-inline: auto;
 }
 
-
+/*review*/
+.trustindex-widget 
+  {
+    
+}
 
 
 
@@ -772,6 +777,8 @@ body {
 
 .gallery {
   padding-block: var(--section-padding);
+  margin-bottom: -50px;
+
 }
 
 .gallery-list {
