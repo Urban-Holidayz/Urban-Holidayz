@@ -433,7 +433,7 @@ body {
 \*-----------------------------------*/
 
 .hero {
-  background-image: url("../images/img2.jpeg");
+  background-image: url("../images/img2.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -799,6 +799,100 @@ body {
 
 
 
+
+.gallery-item {
+  overflow: hidden; /* Ensures the image doesn't go outside the boundaries of the item */
+  border-radius: 5px; /* Optional: Adds rounded corners */
+}
+
+
+
+.gallery-image img {
+ 
+  transition: transform 0.3s ease; /* Smooth zoom transition */
+}
+
+.gallery-image img:hover {
+  transform: scale(1.1); /* Scale the image to 110% on hover */
+}
+
+
+
+
+
+
+
+
+.gallery-item {
+  overflow: hidden; /* Ensures the image doesn't go outside the boundaries of the item */
+  border-radius: 5px; /* Optional: Adds rounded corners */
+}
+
+
+
+.gallery-image img {
+  
+  transition: transform 0.3s ease; /* Smooth zoom transition */
+}
+
+.gallery-image img:hover {
+  transform: scale(1.1); /* Scale the image to 110% on hover */
+}
+
+.hidden {
+  display: none;
+}
+
+#see-more-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+    background: forestgreen;
+}
+
+
+
+
+
+
+
+
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
 /* Modal styling */
 .modal {
   display: none;
@@ -869,6 +963,49 @@ body {
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+/* Basic styling for modal, buttons, etc. */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+ 
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
 
 
