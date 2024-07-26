@@ -102,7 +102,159 @@ window.addEventListener("scroll", function () {
 
 });
 
-var loader=document.getElementById("preloader");
-window.addEventListener("load",function(){
-  loader.style.display="none"
-})
+var loader = document.getElementById("preloader");
+
+window.addEventListener("load", function() {
+  if (loader) {
+    loader.style.display = "block"; // Show preloader
+    // Hide preloader after a short delay to ensure it is visible during page load
+    setTimeout(function() {
+      loader.style.display = "none";
+    }, 1000); // Adjust the delay as needed
+  }
+});
+
+
+
+
+
+
+
+
+
+document.getElementById('see-more-button').addEventListener('click', function() {
+  var additionalImages = document.getElementById('additional-images');
+  if (additionalImages.style.display === 'none' || additionalImages.style.display === '') {
+    additionalImages.style.display = 'block';
+    this.textContent = 'See Less Images'; // Optionally change the button text
+  } else {
+    additionalImages.style.display = 'none';
+    this.textContent = 'See More Images'; // Optionally change the button text
+  }
+});
+  
+
+
+
+
+
+document.getElementById('see-more-button').addEventListener('click', function() {
+  var modal = document.getElementById('additional-images-modal');
+  modal.style.display = 'block';
+});
+
+document.querySelector('.close-button').addEventListener('click', function() {
+  var modal = document.getElementById('additional-images-modal');
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+  var modal = document.getElementById('additional-images-modal');
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+
+// JavaScript for image modal and swipe functionality
+
+let modal = document.getElementById("imageModal");
+let modalImage = document.getElementById("modalImage");
+let closeBtn = document.querySelector(".close");
+let prevButton = document.getElementById("prevButton");
+let nextButton = document.getElementById("nextButton");
+
+// Generate image paths for img1.webp to img29.webp in the ./assets/images/ directory
+let images = [];
+for (let i = 1; i <= 29; i++) {
+  images.push(`./assets/images/img${i}.webp`);
+}
+
+let currentIndex = 0;
+
+function openModal(index) {
+  if (modal && modalImage && images.length > 0) {
+    modal.style.display = "block";
+    currentIndex = index;
+    modalImage.src = images[currentIndex];
+    console.log('Modal opened with image:', modalImage.src);
+  } else {
+    console.error("Modal, modalImage, or images array not properly initialized");
+  }
+}
+
+function closeModal() {
+  if (modal) {
+    modal.style.display = "none";
+  }
+}
+
+function showPrevImage() {
+  if (images.length > 0) {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+    if (modalImage) {
+      modalImage.src = images[currentIndex];
+      console.log('Previous image displayed:', modalImage.src);
+    }
+  }
+}
+
+function showNextImage() {
+  if (images.length > 0) {
+    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+    if (modalImage) {
+      modalImage.src = images[currentIndex];
+      console.log('Next image displayed:', modalImage.src);
+    }
+  }
+}
+
+if (closeBtn) closeBtn.onclick = closeModal;
+if (prevButton) prevButton.onclick = showPrevImage;
+if (nextButton) nextButton.onclick = showNextImage;
+
+let startX = 0;
+let startY = 0;
+
+function handleTouchStart(event) {
+  startX = event.touches[0].clientX;
+  startY = event.touches[0].clientY;
+  console.log('Touch start:', startX, startY);
+}
+
+function handleTouchMove(event) {
+  if (startX === 0 && startY === 0) {
+    return;
+  }
+
+  let diffX = startX - event.touches[0].clientX;
+  let diffY = startY - event.touches[0].clientY;
+
+  console.log('Touch move:', diffX, diffY);
+
+  // Detect swipe direction and distance
+  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+    if (diffX > 0) {
+      console.log('Swiped left');
+      showNextImage(); // Swipe left
+    } else {
+      console.log('Swiped right');
+      showPrevImage(); // Swipe right
+    }
+    startX = 0;
+    startY = 0;
+  }
+}
+
+if (modal) {
+  modal.addEventListener("touchstart", handleTouchStart, false);
+  modal.addEventListener("touchmove", handleTouchMove, false);
+}
+
+
+
+
+
+
+
+
