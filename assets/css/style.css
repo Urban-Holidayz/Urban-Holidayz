@@ -2,14 +2,6 @@
  * #style.css
 \*-----------------------------------*/
 
-/**
- * copyright 2022 codewithsadee
- */
-
-
-
-
-
 /*-----------------------------------*\
  * #CUSTOM PROPERTY
 \*-----------------------------------*/
@@ -763,12 +755,12 @@ body {
   margin-inline: auto;
 }
 
-/*review*/
+/*review
 .trustindex-widget 
   {
     
 }
-
+*/
 
 
 /*-----------------------------------*\
@@ -1642,3 +1634,12 @@ address {
   }
 
 }
+#preloader {
+  background: white url('/assets/images/preloader.gif') no-repeat center center;
+  background-size: 25%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
