@@ -254,7 +254,7 @@ body {
   left: 0;
   width: 100%;
   transition: var(--transition);
-  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+ /* border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);*/
   padding-block: 15px;
   z-index: 1;
 }
@@ -433,7 +433,7 @@ body {
 \*-----------------------------------*/
 
 .hero {
-  background-image: url("../images/img2.webp");
+  background-image: url("../images/img2.webp") ;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -442,7 +442,7 @@ body {
   display: grid;
   place-items: center;
   min-height: 600px;
-  text-align: center;
+  text-align: -webkit-auto;
   padding-top: 125px;
 }
 
