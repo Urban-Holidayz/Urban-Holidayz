@@ -17,30 +17,14 @@
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <!-- SweetAlert2 CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
-  <!-- SweetAlert2 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- Flatpickr CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-  <!-- Flatpickr JS -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-
+ 
 </head>
 
 <body id="top">
-  <!--<div id="preloader"></div>-->
+
+
+
+  <div id="preloader"></div>
 
   <!-- 
     - #HEADER
@@ -71,7 +55,7 @@
         </a>
 
         <a href="#" class="logo">
-          <img src="./assets/images/logoooo.svg" alt="Tourly logo">
+          <img src="./assets/images/logoooo.svg" alt="urban holidayz logo">
         </a>
 
 
@@ -245,79 +229,9 @@
         </div>
       </section>
 
-      <!-- SweetAlert2 CSS and JS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 
-      <script>
-        // Set default date to today
-        document.getElementById('checkin').valueAsDate = new Date();
-
-        async function handleSubmit(event) {
-          event.preventDefault();  // Prevent the default form submission
-
-          const form = document.getElementById('tourSearchForm');
-          if (form.checkValidity()) {
-            const formData = new FormData(form);
-
-            // Show loading animation
-            Swal.fire({
-              title: 'Submitting your inquiry...',
-              text: 'Please wait while we process your request.',
-              allowOutsideClick: false,
-              didOpen: () => {
-                Swal.showLoading();
-              }
-            });
-
-            try {
-              const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-              });
-
-              const data = await response.json();
-              console.log('Success:', data);
-
-              // Show success message
-              Swal.fire({
-                icon: 'success',
-                title: 'Thank you for submitting!',
-                text: 'We will reach out to you soon.',
-                confirmButtonText: 'OK'
-              }).then(() => {
-                // Store the current scroll position
-                localStorage.setItem('scrollPosition', window.scrollY);
-                // Refresh the page
-                location.reload();
-              });
-            } catch (error) {
-              console.error('Error:', error);
-
-              // Show error message
-              Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'There was an error submitting the form.',
-                confirmButtonText: 'OK'
-              });
-            }
-          } else {
-            form.reportValidity();
-          }
-        }
-
-        // Restore the scroll position after the page reloads
-        window.addEventListener('load', () => {
-          const scrollPosition = localStorage.getItem('scrollPosition');
-          if (scrollPosition) {
-            window.scrollTo(0, parseInt(scrollPosition, 10));
-            localStorage.removeItem('scrollPosition');  // Clear the stored position
-          }
-        });
-      </script>
-
-
+     
 
       <!-- 
         - #POPULAR
@@ -927,7 +841,7 @@
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logoooo.svg" alt="Tourly logo">
+            <img src="./assets/images/logoooo.svg" alt="urban holidayz logo">
           </a>
 
           <!-- <p class="footer-text">
@@ -995,7 +909,7 @@
           </a>. All rights reserved
         </p>
 
-        <!-- <ul class="footer-bottom-list">
+         <ul class="footer-bottom-list">
 
           <li>
             <a href="#" class="footer-bottom-link">Privacy Policy</a>
@@ -1010,7 +924,7 @@
           </li>
 
         </ul>
--->
+
       </div>
     </div>
 
@@ -1032,17 +946,44 @@
 
 
 
-  <!-- 
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
+  
 
+</body>
+ <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- SweetAlert2 CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   
   <!-- 
     - ionicon link
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-</body>
+   <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+
+
 
 </html>

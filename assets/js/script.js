@@ -117,6 +117,75 @@ window.addEventListener("load", function() {
 
 
 
+ // Set default date to today
+ document.getElementById('checkin').valueAsDate = new Date();
+
+ async function handleSubmit(event) {
+   event.preventDefault();  // Prevent the default form submission
+
+   const form = document.getElementById('tourSearchForm');
+   if (form.checkValidity()) {
+     const formData = new FormData(form);
+
+     // Show loading animation
+     Swal.fire({
+       title: 'Submitting your inquiry...',
+       text: 'Please wait while we process your request.',
+       allowOutsideClick: false,
+       didOpen: () => {
+         Swal.showLoading();
+       }
+     });
+
+     try {
+       const response = await fetch(form.action, {
+         method: 'POST',
+         body: formData,
+       });
+
+       const data = await response.json();
+       console.log('Success:', data);
+
+       // Show success message
+       Swal.fire({
+         icon: 'success',
+         title: 'Thank you for submitting!',
+         text: 'We will reach out to you soon.',
+         confirmButtonText: 'OK'
+       }).then(() => {
+         // Store the current scroll position
+         localStorage.setItem('scrollPosition', window.scrollY);
+         // Refresh the page
+         location.reload();
+       });
+     } catch (error) {
+       console.error('Error:', error);
+
+       // Show error message
+       Swal.fire({
+         icon: 'error',
+         title: 'Oops...',
+         text: 'There was an error submitting the form.',
+         confirmButtonText: 'OK'
+       });
+     }
+   } else {
+     form.reportValidity();
+   }
+ }
+
+ // Restore the scroll position after the page reloads
+ window.addEventListener('load', () => {
+   const scrollPosition = localStorage.getItem('scrollPosition');
+   if (scrollPosition) {
+     window.scrollTo(0, parseInt(scrollPosition, 10));
+     localStorage.removeItem('scrollPosition');  // Clear the stored position
+   }
+ });
+
+
+
+
 
 
 
