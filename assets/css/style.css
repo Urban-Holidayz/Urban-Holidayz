@@ -1772,11 +1772,27 @@ address {
 
 }
 #preloader {
-  background: white url('/assets/images/preloader.gif') no-repeat center center;
-  background-size: 25%;
+  background: rgb(255, 255, 255) url('/assets/images/preloader.gif') no-repeat center center;
+  background-size: 40%;
   height: 100vh;
   width: 100%;
   position: fixed;
   z-index: 100;
+}
+#ani{
+  animation: CSSscrollReveal ease-in-out both;
+  animation-timeline: view();
+  animation-range: entry 50% cover 50%;
+}
+
+@keyframes CSSscrollReveal{
+  from{
+      opacity: 0;
+      transform: translateY(100px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
