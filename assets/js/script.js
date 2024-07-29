@@ -235,7 +235,7 @@ let nextButton = document.getElementById("nextButton");
 
 // Generate image paths for img1.webp to img29.webp in the ./assets/images/ directory
 let images = [];
-for (let i = 1; i <= 29; i++) {
+for (let i = 1; i <= 33; i++) {
   images.push(`./assets/images/img${i}.webp`);
 }
 
@@ -302,7 +302,7 @@ function handleTouchMove(event) {
   console.log('Touch move:', diffX, diffY);
 
   // Detect swipe direction and distance
-  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 34) {
     if (diffX > 0) {
       console.log('Swiped left');
       showNextImage(); // Swipe left
