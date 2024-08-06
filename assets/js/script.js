@@ -320,7 +320,10 @@ if (modal) {
   modal.addEventListener("touchmove", handleTouchMove, false);
 }
 
-
+  // Get the current year
+  const currentYear = new Date().getFullYear();
+  // Set the current year in the footer, appended to 2024
+  document.getElementById('current-year').textContent += currentYear;
 
 
 
